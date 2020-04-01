@@ -25,7 +25,7 @@ SECRET_KEY = '8^%b-c!fgt(2w0q&6^j3@+zimahz78s*2iocd_t&x(4hif6*e%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
@@ -37,6 +37,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 INSTALLED_APPS = [
     'account',
+    'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,3 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.google.GoogleOAuth2'
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "862682391526-hq7t1dsm4i5atn1sm1dh2o3ig4o9ekad.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "X0DqUI8whgXeYzEsgD4vkyM3"
