@@ -25,18 +25,19 @@ SECRET_KEY = '8^%b-c!fgt(2w0q&6^j3@+zimahz78s*2iocd_t&x(4hif6*e%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', 'eb1dae93.ngrok.io']
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'account',
+    'images.apps.ImagesConfig',
     'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'socio.wsgi.application'
 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
