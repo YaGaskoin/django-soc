@@ -37,6 +37,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INSTALLED_APPS = [
     'account',
+    'sorl.thumbnail',
     'images.apps.ImagesConfig',
     'social_django',
     'django.contrib.admin',
